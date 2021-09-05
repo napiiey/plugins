@@ -1,3 +1,5 @@
+const documentFooter=
+`
 <footer id=footer>
     <div id="license">
         <div style="width:100px;height:99px;background-image:url(napiiey_round.png);background-size:cover;float:left"></div>
@@ -9,3 +11,7 @@
         </p>
     </div>
 </footer>
+`
+;
+let elementFooter = document.getElementById('footer');
+elementFooter.insertAdjacentHTML('beforeend', documentFooter);
