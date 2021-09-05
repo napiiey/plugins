@@ -1,36 +1,91 @@
 <!DOCTYPE html>
 <html lang="ja">
- <head>
- <meta charset="utf-8">
- <title>サイトタイトル</title>
- <meta name="description" content="ディスクリプションを入力">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <!-- <link rel="stylesheet" href="style.css"> -->
- <!-- [if lt IE 9] -->
- <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
- <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
- <!-- [endif] -->
- <!-- <script src="main.js"></script> -->
- </head>
- <body>
- <!----- header----->
- <header>ヘッダー</header>
- <nav>ナビ</nav>
- <!----- /header ----->
+<head>
+<meta charset="utf-8">
+<title>napiiey RPGツクールMVプラグイン</title>
+<meta name="description" content="公開中のRPGツクールMV用プラグイン一覧">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="common.css">
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="common.js"></script>
+<script>
+    //共通パーツ読み込み
+    //  $(function() {
+    //  $("#header").load("header.html");
+    //  $("#side").load("side.html");
+    //  $("#footer").on('load',"footer.html");
+    // });
+
+    // $("#footer").on("load",function(){
+    // //実行内容
+    // });
+    // </script>
+
+<script>
+	var xhr = new XMLHttpRequest(),
+		method = "GET",
+		url = "footer.html";//読み込まれるHTMLを指定
+	var box=document.getElementById("footer");//読み込みたい位置を指定
  
- <!----- main ----->
- <article>
- <h1>タイトル</h1>
- テストテスト
- <section>
- <h2>見出し２</h2>
- <p>コンテンツの内容</p>
- </section>
- </article>
- <!----- /main ----->
- 
- <!----- footer ----->
- <footer>フッター</footer>
- <!----- /footer ----->
- </body>
+	xhr.open(method, url, true);
+	xhr.onreadystatechange = function () {
+		if(xhr.readyState === 4 && xhr.status === 200) {
+			var restxt=xhr.responseText;//String型で取得
+			box.innerHTML=restxt;//完了
+		}
+	};
+	xhr.send();
+</script>
+
+<style type="text/css">
+
+
+</style>
+</head>
+
+
+
+
+
+<body>
+<!----- header----->
+<header>
+    <h1 class="center">RPGツクールMVプラグイン</h1>
+    <p class="center">公開中のRPGツクールMV用プラグイン一覧</p>
+</header>
+<nav></nav>
+<!----- /header ----->
+
+<!----- main ----->
+<main>
+    <article>
+        <section class="underline">
+            <div class="dl-button">Download<span class="material-icons icon-big">download_for_offline</span></div>
+            <h2><span class="material-icons icon-big">extension</span>
+                NAPI_MapEdit</h2>
+            <p>
+            マップ編集プラグイン。マップ上のタイル等をゲーム内でレイヤー毎に編集できます。<br>
+            各層毎のタイル・影・リージョンを一括で置き換えする事ができます。<br>
+            <a href="">使用方法・詳細 <span class="material-icons icon-small">open_in_new</span></a>
+            </p>
+        </section>
+        <section class="underline">
+            <div class="dl-button">Download<span class="material-icons icon-big">download_for_offline</span></div>
+            <h2><span class="material-icons icon-big">extension</span>
+                NAPI_ExcludeSaveData</h2>
+            <p>
+            セーブデータ内容取捨選択プラグイン。<br>
+            セーブデータに含める内容を取捨選択しセーブデータを軽量化します。<br>
+            <a href="">使用方法・詳細 <span class="material-icons icon-small">open_in_new</span></a>
+            </p>
+        </section>
+    </article>
+</main>
+<!----- /main ----->
+
+<!----- footer ----->
+<footer id=footer></footer>
+<!----- /footer ----->
+</body>
 </html>

@@ -1,0 +1,100 @@
+@import url(http://fonts.googleapis.com/earlyaccess/notosansjp.css);
+body{
+    margin:0px;
+    padding:0px;
+    font-size:16px;
+    text-align:left;
+    color: #444;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 100%;
+}
+header{
+    background-color: #e0cc11;
+    color: white;
+    padding-top: 42px;
+    padding-bottom: 30px;
+}
+main{
+    width: 900px;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+@media screen and (max-width:900px) {
+    main{
+        width: auto;
+    }
+}
+footer{
+    background-color: #999;
+    color: white;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-top: 20px;
+}
+section{
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+h1{
+    font-size:48px;
+    font-weight:bold;
+    margin:0px;
+    padding:0px;
+    line-height: 40px;
+}
+h2{
+    font-size:32px;
+    margin:0px 0px 0px 0px;
+    padding:4px 0px 4px 7px;
+}
+
+
+.center{
+    text-align:center;
+}
+.test{
+    background: lightblue;
+}
+.waku{
+    padding: 26px;
+    border: 1px solid #dddddd;
+    border-radius: 12px;
+}
+
+
+#license{
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 20px;
+}
+#license div{
+}
+#license p{
+    margin-left: 130px;
+}
+.dl-button{
+    font-size: 24px;
+    font-weight: bold;
+    float: right;
+    text-align: right;
+    padding-left: 24px;
+    padding-right: 20px;
+    background-color: #ee5a86;
+    color: white;
+    border: 1px solid #dddddd; 
+    border-radius: 5px;
+}
+.icon-small{
+    font-size: 18px;
+    vertical-align: -3px;
+}
+.icon-big{
+    font-size: 46px;
+    vertical-align: -11px;
+}
+.underline{
+    border-bottom: 0.5px solid #dddddd;
+}
+
