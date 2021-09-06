@@ -1,15 +1,8 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="utf-8">
-<title>napiiey RPGツクールMVプラグイン</title>
-<meta name="description" content="公開中のRPGツクールMV用プラグイン一覧">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<link rel="stylesheet" href="common.css">
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="common_head.js"></script>
 </head>
-
 
 <body>
 <!----- header----->
@@ -21,15 +14,110 @@
 <main>
     <article>
         <section class="underline">
-            <a class="dl-button" href="https://raw.githubusercontent.com/napiiey/rpgmaker-plugins/master/NAPI_MapEdit.js">Download<span class="material-icons icon-big">download_for_offline</span></a>
-            <h2><span class="material-icons icon-big">extension</span>
-                NAPI_MapEdit</h2>
-            <p id="jsText">
+            <a class="dl-button" href="https://raw.githubusercontent.com/napiiey/rpgmaker-plugins/master/NAPI_MapEdit.js">
+                <strong>Download</strong><span class="material-icons icon-big">download_for_offline</span></a>
+            <section class="plugin_name_box">
+                <span class="material-icons icon-large">extension</span>
+                <div>
+                    <h2 id="plugin_name"></h2>
+                    <p id="plugin_desc"></p>
+                </div>
+            </section>
             
-         
-            </p>
-        </section>
+            
 
+<a id="helpdocument">
+//=============================================================================
+// NAPI_MapEdit.js
+//=============================================================================
+// Copyright (c) 2021 napiiey
+// Released under the MIT license
+// https://opensource.org/licenses/mit-license.php
+//-----------------------------------------------------------------------------
+// version
+// 0.1.0 2021/08/18 ベータ版公開
+//-----------------------------------------------------------------------------
+// Twitter: @napiiey
+//-----------------------------------------------------------------------------
+
+/*:
+ * @plugindesc マップ編集プラグイン
+ * @author なぴぃ
+ * 
+ * @help マップ上のタイル・影・リージョンをゲーム内でコピー＆ペーストし保存します。
+ * レイヤーを切り替え層毎に一括置き換えする事ができます。
+ * 
+ * ●キー操作
+ <img src="image/napi_mapedit_keys.png">
+
+ * Cキー: コピー(Copy)             プレイヤーの位置のタイルをコピーします。
+ * Vキー: 貼り付け(Paste)          プレイヤーの位置にコピーしたタイルを貼り付けます。
+ * Bキー: 一括貼り付け(PasteSame)  プレイヤーの位置のタイルと同じタイル全てに
+ *                                 コピーしたタイルを貼り付けます。
+ * Nキー: 元に戻す(Undo)           1つ前に行った操作を元に戻します。
+ * Mキー: モード変更(ModeChange)   常時すり抜けモードを変更します。
+ * ,キー: レイヤー変更↓(LayerDown)1段下のレイヤーを選択します。
+ * .キー: レイヤー変更↑(LayerUp)  1段上のレイヤーを選択します。
+ * Fキー: 保存(FileSave)           データを保存します。上書きはされません。
+ *                                 バックアップを取り手動で置き換えて下さい。
+ * 
+ * 
+ * ●使い方
+ * 上記の追加キーで編集を行います。
+ * キーマッピング系プラグイン（Mano_InputFix等）と併用するとキー設定を変更できます。
+ * 
+ * 編集直後は変更が反映されませんが、移動する等して画面が
+ * スクロールすると反映されます。
+ * 元データではなく一時的なキャッシュを編集している為、
+ * 場所移動やメニュー等のシーン変更を行うと全て元に戻ります。
+ * 
+ * 一通り編集が終わったらFキーで編集後のデータを保存します。
+ * ブラウザ機能で保存される為、バックアップの後
+ * dataフォルダの中の map〇〇〇.json と置き換えて下さい。
+ * エディターの表示はエディターを再起動すると反映されます。
+ * 
+ * 
+ * ●レイヤー
+ * 0.下層レイヤー1 タイルセットA1~A5の多くのタイルがここに属します。
+ * 1.下層レイヤー2 タイルセットA1~A5の重ね合わせ用タイル等がここに属します。
+ * 2.上層レイヤー1 タイルセットB~Eのタイルが重なった場合下のタイルがここに移動します。
+ * 3.上層レイヤー2 タイルセットB~Eのタイルは通常ここに属します。
+ * 4.影レイヤー    影のレイヤーです。
+ * 5.リージョンレイヤー リージョンのレイヤーです。
+ * 
+ * 
+ * 編集内容はマップ名の表示を利用して表示されます。
+ * タイルIDは ルートタイルID:形状ID の形式で表示され、
+ * この2つを足したものがタイルIDになります。 
+ * F8キーで出せるコンソール画面に詳細が表示されます。
+ * tileTypeはタイルの種別を表し、異なるタイプのタイルに
+ * 貼り付ける場合は形状IDが破棄され0になります。
+ * 
+ * ●タイルタイプ
+ * 0.通常タイル
+ * 1.床オートタイル
+ * 2.壁オートタイル
+ * 3.滝オートタイル
+ * 
+ * 
+ * ※このプラグインはベータ版です。重大なバグを含んでいる可能性が大いにある為
+ * 必ずバックアップを取って作業して下さい。
+ * このプラグインにより発生したいかなる問題にもプラグイン制作者は責任を負いかねます。
+ * 
+ * マップの変更状態を保存するプラグインの性質上、イベントや他のプラグインによって
+ * マップの状態が変化している場合はそれらの変化も一緒に保存してしまう場合があります。
+ * 
+ * 制作補助のみを想定したプラグインですので配布時はこのプラグインを含めないよう
+ * 注意してください。
+ * 
+ * 
+ * ●ご利用について
+ * 本プラグインはMITライセンスの下で公開しています。
+ * MITライセンスの内容に従ってご利用下さい。
+ * 
+
+            </a>
+        </section>
     </article>
 </main>
 <!----- /main ----->

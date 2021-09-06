@@ -9,7 +9,7 @@ body{
     font-size: 100%;
 }
 header{
-    background-color: #e0cc11;
+    background-color: #eccc12;
     color: white;
     padding-top: 42px;
     padding-bottom: 30px;
@@ -45,8 +45,19 @@ h1{
 }
 h2{
     font-size:32px;
-    margin:0px 0px 0px 0px;
-    padding:4px 0px 4px 7px;
+    margin:0px;
+    padding:0px;padding-top:4px ;padding-bottom:4px ;
+}
+h3{
+    font-size:26px;
+    margin:0px;
+    padding:0px;padding-top:4px ;padding-bottom:4px ;
+}
+img {
+    width:auto;
+    height:auto;
+    max-width:100%;
+    max-height:100%;
 }
 
 
@@ -65,8 +76,22 @@ h2{
     color: white;
     text-decoration: none;
 }
+.link-gray{
+    color: #444;
+    text-decoration: none;
+}
+.link-gray:hover{
+    color: #999999;
+}
+.ws_nomal{
+    white-space: normal;
+}
 
 
+
+#plugin_list{
+    white-space: pre-wrap;
+}
 #license{
     width: 500px;
     margin-left: auto;
@@ -91,15 +116,68 @@ h2{
     border: 1px solid #dddddd; 
     border-radius: 5px;
 }
+.dl-button:hover{
+    background-color: #f398ca;
+}
+.dl-button strong{
+    /* background-color: thistle; */
+    padding: 0px;
+    margin-right: 8px;
+}
+.dl-button span{
+    padding: 0px;
+}
 .icon-small{
     font-size: 18px;
     vertical-align: -3px;
 }
 .icon-big{
-    font-size: 46px;
+    font-size: 42px;
     vertical-align: -11px;
 }
 .underline{
     border-bottom: 0.5px solid #dddddd;
+}
+
+
+
+
+
+.plugin_name_box{
+    /* background-color: yellowgreen; */
+    padding: 0px;
+}
+.plugin_name_box span{
+    /* background-color: rgb(136, 175, 58); */
+    float:left;
+    font-size: 68px;
+    line-height: 100%;
+    vertical-align: -13px;
+}
+.plugin_name_box div{
+    /* background-color: rgb(255, 233, 143); */
+    padding-left: 80px;
+    margin-bottom: 20px;
+}
+.plugin_name_box h2{
+    /* background-color: rgb(50, 205, 202); */
+    padding: 0px;
+    margin-bottom: 8px;
+    line-height: 100%;
+}
+.plugin_name_box p{
+    /* background-color: rgb(205, 50, 179); */
+    margin: 0px;
+    font-weight: bold;
+}
+
+#helpdocument{
+    white-space: pre-wrap;
+}
+.helpCaption{
+    padding-top: 0px;
+    padding-left: 10px;
+    margin-bottom: 10px;
+    border-left: 8px solid rgb(52, 94, 85);
 }
 
