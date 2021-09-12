@@ -109,7 +109,7 @@ if(document.getElementById("helpdocument") != null){
 
     main.insertAdjacentHTML('afterbegin', beforeDownload+pluginName+afterDownload);
     main.insertAdjacentHTML('beforeend', mainBeforeEnd);
-    console.log(main.innerHTML);
+    // console.log(main.innerHTML);
     
     const pluginDescStart = helpDoc.indexOf("@plugindesc")+12;
     const pluginDescEnd = helpDoc.indexOf("\n",pluginDescStart);
@@ -140,15 +140,9 @@ if(document.getElementById("helpdocument") != null){
         helpDoc = helpDoc.replace("●",'<h3 class="helpCaption">');
     };
 
-    helpdocument.innerHTML = helpDoc.replace("@plugindesc ","")
+    helpDoc = helpDoc.replace("@plugindesc ","")
     .replace("@author ","作者:").replace("@help","");
+    helpdocument.innerHTML = helpDoc;
 
-    // console.log(helpdocument.innerHTML);
 };
-//============================== テーブル =====================================
 
-tableConvert.innerHTML
-
-
-
-replaceAll(" {2,}", "")

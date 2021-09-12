@@ -35,12 +35,12 @@
  * 
  * ●キー操作
  <img src="image/napi_mapedit_keys.png">
- <table>
+ <table id="keymapping">
 	<tbody>
 		<tr>
 			<td>C</td>
-			<td>コピー</td>
-            <td>(Copy)</td>
+			<td style="width: 120px;">コピー</td>
+            <td style="width: 120px;">(Copy)</td>
 			<td>プレイヤーの位置のタイルをコピーします。</td>
 		</tr>
 		<tr>
@@ -59,28 +59,33 @@
 			<td>N</td>
 			<td>元に戻す</td>
 			<td>(Undo)</td>
-            <td></td>
+            <td>1つ前に行った操作を元に戻します。</td>
 		</tr>
 		<tr>
 			<td>M</td>
 			<td>モード変更</td>
-			<td></td>
-            <td></td>
+			<td>(ModeChange)</td>
+            <td>常時すり抜けモードを変更します。</td>
+		</tr>
+		<tr>
+			<td>,</td>
+			<td>レイヤー変更↓</td>
+			<td>(LayerDown)</td>
+            <td>1段下のレイヤーを選択します。</td>
+		</tr>
+		<tr>
+			<td>.</td>
+			<td>レイヤー変更↑</td>
+			<td>(LayerUp)</td>
+            <td>1段上のレイヤーを選択します。</td>
+		</tr>
+		<tr>
+			<td>F</td>
+			<td>保存</td>
+			<td>(FileSave)</td>
+            <td>データを保存します。上書きはされません。バックアップを取り手動で置き換えて下さい。</td>
 		</tr>
 	</tbody>
-</table>
-
-<table id="table_convert">
- * Cキー: コピー(Copy)             プレイヤーの位置のタイルをコピーします。
- * Vキー: 貼り付け(Paste)          プレイヤーの位置にコピーしたタイルを貼り付けます。
- * Bキー: 一括貼り付け(PasteSame)  プレイヤーの位置のタイルと同じタイル全てに
- *                                 コピーしたタイルを貼り付けます。
- * Nキー: 元に戻す(Undo)           1つ前に行った操作を元に戻します。
- * Mキー: モード変更(ModeChange)   常時すり抜けモードを変更します。
- * ,キー: レイヤー変更↓(LayerDown)1段下のレイヤーを選択します。
- * .キー: レイヤー変更↑(LayerUp)  1段上のレイヤーを選択します。
- * Fキー: 保存(FileSave)           データを保存します。上書きはされません。
- *                                 バックアップを取り手動で置き換えて下さい。
 </table>
  * 
  * ●使い方
