@@ -11,21 +11,7 @@
 <!----- /header ----->
 
 <!----- main ----->
-<main>
-    <article>
-        <section class="underline">
-            <a class="dl-button" href="https://raw.githubusercontent.com/napiiey/rpgmaker-plugins/master/NAPI_MapEdit.js">
-                <strong>Download</strong><span class="material-icons icon-big">download_for_offline</span></a>
-            <section class="plugin_name_box">
-                <span class="material-icons icon-large">extension</span>
-                <div>
-                    <h2 id="plugin_name"></h2>
-                    <p id="plugin_desc"></p>
-                </div>
-            </section>
-            
-            
-
+<main id="main">
 <a id="helpdocument">
 //=============================================================================
 // NAPI_MapEdit.js
@@ -49,7 +35,42 @@
  * 
  * ●キー操作
  <img src="image/napi_mapedit_keys.png">
+ <table>
+	<tbody>
+		<tr>
+			<td>C</td>
+			<td>コピー</td>
+            <td>(Copy)</td>
+			<td>プレイヤーの位置のタイルをコピーします。</td>
+		</tr>
+		<tr>
+			<td>V</td>
+			<td>貼り付け</td>
+            <td>(Paste)</td>
+			<td>プレイヤーの位置にコピーしたタイルを貼り付けます。</td>
+		</tr>
+		<tr>
+			<td>B</td>
+			<td>一括貼り付け</td>
+			<td>(PasteSame)</td>
+            <td>プレイヤーの位置のタイルと同じタイル全てにコピーしたタイルを貼り付けます。</td>
+		</tr>
+		<tr>
+			<td>N</td>
+			<td>元に戻す</td>
+			<td>(Undo)</td>
+            <td></td>
+		</tr>
+		<tr>
+			<td>M</td>
+			<td>モード変更</td>
+			<td></td>
+            <td></td>
+		</tr>
+	</tbody>
+</table>
 
+<table id="table_convert">
  * Cキー: コピー(Copy)             プレイヤーの位置のタイルをコピーします。
  * Vキー: 貼り付け(Paste)          プレイヤーの位置にコピーしたタイルを貼り付けます。
  * Bキー: 一括貼り付け(PasteSame)  プレイヤーの位置のタイルと同じタイル全てに
@@ -60,7 +81,7 @@
  * .キー: レイヤー変更↑(LayerUp)  1段上のレイヤーを選択します。
  * Fキー: 保存(FileSave)           データを保存します。上書きはされません。
  *                                 バックアップを取り手動で置き換えて下さい。
- * 
+</table>
  * 
  * ●使い方
  * 上記の追加キーで編集を行います。
@@ -115,10 +136,7 @@
  * 本プラグインはMITライセンスの下で公開しています。
  * MITライセンスの内容に従ってご利用下さい。
  * 
-
-            </a>
-        </section>
-    </article>
+</a>
 </main>
 <!----- /main ----->
 

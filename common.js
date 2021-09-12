@@ -83,11 +83,33 @@ if(document.getElementById("plugin_list") != null){
 //============================== ヘルプ文章 =====================================
 
 if(document.getElementById("helpdocument") != null){
+    const beforeDownload = `<article>
+    <section>
+    <a class="dl-button" href="https://raw.githubusercontent.com/napiiey/rpgmaker-plugins/master/`
+
+    const afterDownload = `.js">
+        <strong>Download</strong><span class="material-icons icon-big">download_for_offline</span></a>
+    <section class="plugin_name_box">
+        <span class="material-icons icon-large">extension</span>
+        <div>
+            <h2 id="plugin_name"></h2>
+            <p id="plugin_desc"></p>
+        </div>
+    </section>`
+
+    const mainBeforeEnd = `</section>
+    </article>`;
+
+
     let helpDoc = helpdocument.innerHTML;
 
     const pluginNameEnd = helpDoc.indexOf(".js");
     const pluginNameStart = helpDoc.lastIndexOf("// ",pluginNameEnd)+3;
     const pluginName = helpDoc.slice(pluginNameStart,pluginNameEnd);
+
+    main.insertAdjacentHTML('afterbegin', beforeDownload+pluginName+afterDownload);
+    main.insertAdjacentHTML('beforeend', mainBeforeEnd);
+    console.log(main.innerHTML);
     
     const pluginDescStart = helpDoc.indexOf("@plugindesc")+12;
     const pluginDescEnd = helpDoc.indexOf("\n",pluginDescStart);
@@ -96,7 +118,6 @@ if(document.getElementById("helpdocument") != null){
     const headTitleDesc = "<title>"+pluginName+"</title>"
     +'<meta name="description" content="'+pluginDesc+'">';
     document.head.insertAdjacentHTML("beforeend",headTitleDesc);
-    console.log(document.head.innerHTML);
 
     plugin_name.innerHTML=pluginName;
     plugin_desc.innerHTML=pluginDesc;
@@ -124,3 +145,10 @@ if(document.getElementById("helpdocument") != null){
 
     // console.log(helpdocument.innerHTML);
 };
+//============================== テーブル =====================================
+
+tableConvert.innerHTML
+
+
+
+replaceAll(" {2,}", "")
