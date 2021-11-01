@@ -53,6 +53,11 @@ h3{
     margin:0px;
     padding:0px;padding-top:4px ;padding-bottom:4px ;
 }
+h4{
+    font-size:22px;
+    margin:0px;
+    padding:0px;padding-top:4px ;padding-bottom:4px ;
+}
 img {
     width:auto;
     height:auto;
@@ -181,3 +186,54 @@ img {
     border-left: 8px solid rgb(52, 94, 85);
 }
 
+
+#commentArea{
+    width: 900px;
+    padding-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+@media screen and (max-width:900px) {
+    #commentArea{
+        width: auto;
+    }
+}
+#commentArea textarea{
+    box-sizing: border-box;
+    padding: 20px;
+    width: 100%;
+    height: 180px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-color: #aaa;
+    border-radius: 5px;
+}
+#commentArea input{
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 40px;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #ee5a86;
+    color: white;
+    text-decoration: none;
+    border: 1px solid #dddddd; 
+    border-radius: 5px;
+}
+.comment-number{
+    font-size: 20px;
+    font-weight: bold;
+    margin-right: 20px;
+}
+.comment-date{
+    color: #999;
+}
+.comment-text{
+    width: 100%;
+    padding-top: 12px;
+    padding-bottom: 24px;
+    margin-bottom: 16px;
+    border-bottom: thin solid rgb(218, 218, 218);
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+}

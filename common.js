@@ -81,6 +81,7 @@ if(document.getElementById("plugin_list") != null){
 };
 
 //============================== ヘルプ文章 =====================================
+let pluginName="";
 
 if(document.getElementById("helpdocument") != null){
     const beforeDownload = `<article>
@@ -105,7 +106,7 @@ if(document.getElementById("helpdocument") != null){
 
     const pluginNameEnd = helpDoc.indexOf(".js");
     const pluginNameStart = helpDoc.lastIndexOf("// ",pluginNameEnd)+3;
-    const pluginName = helpDoc.slice(pluginNameStart,pluginNameEnd);
+    pluginName = helpDoc.slice(pluginNameStart,pluginNameEnd);
 
     main.insertAdjacentHTML('afterbegin', beforeDownload+pluginName+afterDownload);
     main.insertAdjacentHTML('beforeend', mainBeforeEnd);
@@ -145,4 +146,78 @@ if(document.getElementById("helpdocument") != null){
     helpdocument.innerHTML = helpDoc;
 
 };
+
+//============================== コメント欄 =====================================
+
+const commentHtml = `
+<form id="commentForm">
+<h4><span class="material-icons">forum</span>コメント</h4>
+ご質問やご要望、不具合報告等はこちらへお願いします。<br>
+<textarea id="commentInput" placeholder="コメント" required></textarea><br>
+<input type="button" value="書き込む" onclick="postForm();"/>
+</form>
+<div id="comments"></div>`
+
+let elementComment = document.getElementById('commentArea');
+elementComment.insertAdjacentHTML('beforeend', commentHtml);
+
+
+function postForm() {
+    //テキストエリアの中身とIDと場所を送信
+    let commentInput = document.getElementById('commentInput').value;
+    console.log(commentInput);
+ 
+    const form = document.createElement('form');
+    const comment = document.createElement('input');
+    const target = document.createElement('input');
+ 
+    form.method = 'POST';
+    form.action = 'https://script.google.com/macros/s/AKfycbyBm9qNvz5kDGlEQk0YJr0ibC_ZoIvoAXszHA4ykltQ4cWN77m_cU_3nXbW61NAcDho/exec';
+ 
+    comment.type = 'hidden'; //入力フォームが表示されないように
+    comment.name = 'comment';
+    comment.value = commentInput;
+
+    target.type = 'hidden'; //入力フォームが表示されないように
+    target.name = 'target';
+    target.value = pluginName;
+ 
+    form.appendChild(comment);
+    form.appendChild(target);
+    document.body.appendChild(form);
+
+    if(commentInput!==""){form.submit();
+    }else{alert("コメントを入力して下さい。")};
+};
+
+
+//GASのAPIのURL
+const endpoint = "https://script.google.com/macros/s/AKfycbyBm9qNvz5kDGlEQk0YJr0ibC_ZoIvoAXszHA4ykltQ4cWN77m_cU_3nXbW61NAcDho/exec";
+    
+//APIを使って非同期データを取得する
+fetch(endpoint)
+.then(response => response.json())
+/*成功した処理*/
+.then(data => {
+    //JSONから配列に変換
+    const obj = data;
+    
+
+    let documentComments = "";
+    let countNumber=0;
+    obj.forEach((element,index)=> {
+        if(element.target===pluginName){
+            countNumber=countNumber+1;
+            const isoDate = new Date(element.date);
+            const localeDate=isoDate.toLocaleDateString('ja-JP', {timeZone:'Asia/Tokyo',hour:'numeric',minute:'numeric',second:'numeric'});
+            const convertComment=element.comment.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+            documentComments='<span class="comment-number">'+countNumber+"</span>"+'<span class="comment-date">'+localeDate+"</span>"
+            +"<br>"+'<div class="comment-text">'+convertComment+"</div>"+documentComments;
+        };
+        
+    });
+
+    let elementComments = document.getElementById('comments');
+    elementComments.insertAdjacentHTML('beforeend', documentComments);
+});
 
