@@ -161,15 +161,21 @@ const commentHtml = `
 let elementComment = document.getElementById('commentArea');
 elementComment.insertAdjacentHTML('beforeend', commentHtml);
 
+//user
+userId = "";
+fetch('https://ipinfo.io?callback')
+  .then(res => res.json())
+  .then(json => userId=json.ip)
 
 function postForm() {
-    //テキストエリアの中身とIDと場所を送信
+    //テキストエリアの中身とuserとターゲットを送信
     let commentInput = document.getElementById('commentInput').value;
     console.log(commentInput);
  
     const form = document.createElement('form');
     const comment = document.createElement('input');
     const target = document.createElement('input');
+    const user = document.createElement('input');
  
     form.method = 'POST';
     form.action = 'https://script.google.com/macros/s/AKfycbyBm9qNvz5kDGlEQk0YJr0ibC_ZoIvoAXszHA4ykltQ4cWN77m_cU_3nXbW61NAcDho/exec';
@@ -181,9 +187,14 @@ function postForm() {
     target.type = 'hidden'; //入力フォームが表示されないように
     target.name = 'target';
     target.value = pluginName;
+
+    user.type = 'hidden'; //入力フォームが表示されないように
+    user.name = 'user';
+    user.value = userId;
  
     form.appendChild(comment);
     form.appendChild(target);
+    form.appendChild(user);
     document.body.appendChild(form);
 
     if(commentInput!==""){form.submit();
