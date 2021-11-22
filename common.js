@@ -6,7 +6,7 @@ const documentHeader=
 `
 <a href="index.html" class="link-white">
     <h1 class="center">RPGツクールMVプラグイン</h1>
-    <p class="center">公開中のRPGツクールMV用プラグイン一覧</p>
+    <p class="center">なぴぃが公開中のRPGツクールMV用プラグイン一覧</p>
 </a>
 `
 ;
