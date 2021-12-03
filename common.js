@@ -88,15 +88,17 @@ if(document.getElementById("helpdocument") != null){
     <section>
     <a class="dl-button" href="https://raw.githubusercontent.com/napiiey/rpgmaker-plugins/master/`
 
-    const afterDownload = `.js">
-        <strong>Download</strong><span class="material-icons icon-big">download_for_offline</span></a>
-    <section class="plugin_name_box">
-        <span class="material-icons icon-large">extension</span>
-        <div>
-            <h2 id="plugin_name"></h2>
-            <p id="plugin_desc"></p>
-        </div>
-    </section>`
+    const afterDownload = `.js" onclick="ga('send','event','plugindl','click','`
+
+    const afterGa = `', 1);">
+    <strong>Download</strong><span class="material-icons icon-big">download_for_offline</span></a>
+<section class="plugin_name_box">
+    <span class="material-icons icon-large">extension</span>
+    <div>
+        <h2 id="plugin_name"></h2>
+        <p id="plugin_desc"></p>
+    </div>
+</section>`
 
     const mainBeforeEnd = `</section>
     </article>`;
@@ -108,7 +110,8 @@ if(document.getElementById("helpdocument") != null){
     const pluginNameStart = helpDoc.lastIndexOf("// ",pluginNameEnd)+3;
     pluginName = helpDoc.slice(pluginNameStart,pluginNameEnd);
 
-    main.insertAdjacentHTML('afterbegin', beforeDownload+pluginName+afterDownload);
+    main.insertAdjacentHTML('afterbegin',
+    beforeDownload+pluginName+afterDownload+pluginName+afterGa);
     main.insertAdjacentHTML('beforeend', mainBeforeEnd);
     // console.log(main.innerHTML);
     
