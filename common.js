@@ -76,7 +76,7 @@ if(document.getElementById("plugin_list") != null){
         pluginListResult = pluginListResult+beforeDownload+name+afterDownload+name.toLowerCase()+afterDetail+name+afterName+desc+afterDesc+text+afterText;
         pluginList = pluginList.slice(textEnd+1);
     };
-    console.log(pluginListResult);
+    // console.log(pluginListResult);
     plugin_list.innerHTML = '<div style="white-space:normal">'+pluginListResult+'</div>';
 };
 
@@ -173,7 +173,7 @@ fetch('https://ipinfo.io?callback')
 function postForm() {
     //テキストエリアの中身とuserとターゲットを送信
     let commentInput = document.getElementById('commentInput').value;
-    console.log(commentInput);
+    // console.log(commentInput);
  
     const form = document.createElement('form');
     const comment = document.createElement('input');
