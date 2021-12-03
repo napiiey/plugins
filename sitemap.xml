@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+<url>
+  <loc>https://napiiey.github.io/plugins/</loc>
+  <priority>1.0</priority>
+  <lastmod>2021-11-22T18:04:51+09:00</lastmod>
+</url>
+
+<url><loc>https://napiiey.github.io/plugins/napi_mapedit.html</loc></url>
+<url><loc>https://napiiey.github.io/plugins/napi_excludesavedata.html</loc></url>
+<url><loc>https://napiiey.github.io/plugins/napi_originaltextescape.html</loc></url>
+<url><loc>https://napiiey.github.io/plugins/napi_hitcountremovestate.html</loc></url>
+<url><loc>https://napiiey.github.io/plugins/napi_consecutivestates.html</loc></url>
+<url><loc>https://napiiey.github.io/plugins/napi_defaultdamagerate.html</loc></url>
+<url><loc>https://napiiey.github.io/plugins/napi_autofacegraphic.html</loc></url>
+<url><loc>https://napiiey.github.io/plugins/napi_noinputcounttrigger.html</loc></url>
+
+</urlset>
