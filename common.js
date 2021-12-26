@@ -5,8 +5,8 @@
 const documentHeader=
 `
 <a href="index.html" class="link-white">
-    <h1 class="center">RPGツクールMVプラグイン</h1>
-    <p class="center">なぴぃが公開中のRPGツクールMV用プラグイン一覧</p>
+    <h1 class="center">RPGツクールプラグイン</h1>
+    <p class="center">なぴぃが公開中のRPGツクールMV/MZ用プラグイン一覧</p>
 </a>
 `
 ;

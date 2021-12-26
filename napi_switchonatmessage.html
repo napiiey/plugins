@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<script src="common_head.js"></script>
+</head>
+
+<body>
+<!----- header----->
+<header id="header"></header>
+<nav></nav>
+<!----- /header ----->
+
+<!----- main ----->
+<main id="main">
+<a id="helpdocument">
+//=============================================================================
+// NAPI_SwitchOnAtMessage.js
+//=============================================================================
+// Copyright (c) 2021 napiiey
+// Released under the MIT license
+// https://opensource.org/licenses/mit-license.php
+//-----------------------------------------------------------------------------
+// version
+// 1.0.0 2021/12/26 公開
+//-----------------------------------------------------------------------------
+// Twitter: @napiiey
+//-----------------------------------------------------------------------------
+
+/*:
+ * @target MV MZ
+ * @plugindesc 文章の表示並列コモンスイッチプラグイン
+ * @author なぴぃ
+ * 
+ * @help 文章を表示した時と閉じた時にスイッチをオンにします。
+ * これにより並列コモンイベントを操作し好きな演出を加えられます。
+ * 
+ * 
+ * ●使い方
+ * プラグインパラメーターで並列コモンイベントを操作する為のスイッチを設定します。
+ * スイッチを利用して並列コモンイベントを起動します。
+ * 並列コモンイベントの最後でそのスイッチをオフにする事を忘れずに行ってください。
+ * 
+ * 
+ * ●コモンイベントに文章の表示の情報を利用する（上級者向け）
+ * 以下の情報が利用できます。スクリプトで使用して下さい。
+ * 
+ * NAPI.soamFaceImage　顔画像のファイル名
+ * NAPI.soamFaceIndex　顔画像のインデックス
+ * NAPI.soamBackground　ウィンドウ背景（0.ウィンドウ 1.暗くする 2.透明）
+ * NAPI.soamPositionType　ウィンドウの位置（0.上 1.中 2.下）
+ * NAPI.soamSpeakerName　名前
+ * 
+ * 
+ * ●ご利用について
+ * 本プラグインはMITライセンスの下で公開しています。
+ * MITライセンスの内容に従ってご利用下さい。
+ * https://napiiey.github.io/plugins/license.html
+ * 
+
+</a>
+</main>
+<!----- /main ----->
+
+<!----- comment ----->
+<div id="commentArea"></div>
+<!----- /comment ----->
+
+<!----- footer ----->
+<footer id=footer></footer>
+<!----- /footer ----->
+
+<script src="common.js"></script>
+</body>
+</html>
