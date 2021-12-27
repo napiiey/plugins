@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <title>napiiey RPGツクールプラグイン</title>
-<meta name="description" content="なぴぃが公開中のRPGツクールMV/MZ用プラグイン一覧">
+<meta name="description" content="なぴぃが公開中のRPGツクールMV-MZ用プラグイン一覧">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link rel="stylesheet" href="common.css">
@@ -26,56 +26,122 @@
 
 <!----- main ----->
 <main>
+    <div id="sort">
+        <div>
+            <select name="version" id="select_version">
+                <option value="all">MV / MZ</option>
+                <option value="MV">MV<MV/option>
+                <option value="MZ">MZ</option>
+                </select>
+        </div>
+        <div>
+            <select name="category" id="select_category">
+                <option>全てのカテゴリー</option>
+            </select>
+        </div>
+        <div>
+            <form>
+                <input type="text" id="search_text" placeholder="検索ワードを入力">
+            </form>
+        </div>
+    </div>
+   
 <article id="plugin_list">
+<a class="link-gray" href="napi_switchonatmessage.html">
 NAPI_SwitchOnAtMessage
 文章の表示並列コモンスイッチプラグイン
 文章を表示した時と閉じた時にスイッチをオンにします。
+MV-MZ
+文章の表示
+</a>
 
+<a class="link-gray" href="napi_itemlist.html">
 NAPI_ItemList
 配布済みアイテム一覧表示プラグイン
 配布済みアイテムをDevToolsコンソールに一覧表示します。
+MV-MZ
+制作補助
+</a>
 
+<a class="link-gray" href="napi_switchonatmessage.html">
 NAPI_LimitedOneShop
 一点物ショッププラグイン
 在庫数1個のショップを作ります。
+MV
+ショップ
+</a>
 
+<a class="link-gray" href="napi_switchonatmessage.html">
 NAPI_SelectableWindowAccel
 ウィンドウ操作途中加速プラグイン
 ウィンドウ操作やショップの個数選択中、長押し操作で段階的に加速します。
+MV
+入力操作
+</a>
 
+<a class="link-gray" href="napi_switchonatmessage.html">
 NAPI_NoInputCountTrigger
 一定時間入力無し検知プラグイン
 一定時間入力が無い事を検知してスイッチやコモンイベントを操作します。
+MV
+入力操作
+</a>
 
+<a class="link-gray" href="napi_switchonatmessage.html">
 NAPI_AutoFaceGraphic
 顔グラ自動表示プラグイン
 文章の表示で文章に含まれた名前に応じて自動で顔画像を表示します。
+MV-MZ
+文章の表示
+</a>
 
+<a class="link-gray" href="napi_switchonatmessage.html">
 NAPI_DefaultDamageRate
 共通ダメージ倍率プラグイン
 全てのスキルに適応する共通ダメージ倍率を設定します。
+MV
+バトル
+</a>
 
+<a class="link-gray" href="napi_switchonatmessage.html">
 NAPI_ConsecutiveStates
 連続ステートプラグイン
 連続して違う効果の現れるステートを作ります。
+MV
+バトル
+</a>
 
+<a class="link-gray" href="napi_switchonatmessage.html">
 NAPI_HitCountRemoveState
 一定回数ダメージを受けると消えるステート
 一定回数ダメージを受けると消えるステートを作ります。
+MV
+バトル
+</a>
 
+<a class="link-gray" href="napi_switchonatmessage.html">
 NAPI_OriginalTextEscape
 独自用語制御文字追加プラグイン
 後から変更できる独自用語を制御文字で入力できるようにします。
+MV
+文章の表示
+</a>
 
+<a class="link-gray" href="napi_switchonatmessage.html">
 NAPI_ExcludeSaveData
 セーブデータ内容取捨選択プラグイン
 セーブデータに含める内容を取捨選択しセーブデータを軽量化します。
+MV
+その他
+</a>
 
+<a class="link-gray" href="napi_switchonatmessage.html">
 NAPI_MapEdit
 マップ編集プラグイン
-マップ上のタイル等をゲーム内でレイヤー毎に編集できます。
-各層毎のタイル・影・リージョンを一括で置き換えする事ができます。
-
+タイル・影・リージョンを一括で置き換えする事ができます。
+MV
+制作補助
+</a>
 </article>
 </main>
 <!----- /main ----->

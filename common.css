@@ -1,5 +1,6 @@
 @import url(https://fonts.googleapis.com/earlyaccess/notosansjp.css);
 body{
+    background-color: rgb(251, 250, 250);
     margin:0px;
     padding:0px;
     font-size:16px;
@@ -94,6 +95,29 @@ img {
 
 
 
+#sort{
+    display: flex;
+    margin-top: 26px;
+}
+#sort select,input{
+    /* width: 160px; */
+    border: 1px solid rgb(221, 221, 221);
+    border-radius: 50px;
+    background: #ffffff;
+    padding: 8px 20px;
+}
+#sort select{
+    margin-right: 30px;
+}
+#sort input{
+    margin-right: 30px;
+    width: 280px;
+}
+.serch_colored {
+    background-color: #f398ca;
+    box-shadow: 0px 4px 0 #f398ca;
+}
+
 #plugin_list{
     white-space: pre-wrap;
 }
@@ -129,14 +153,14 @@ img {
     padding: 0px;
     margin-right: 8px;
 }
-.dl-button span{
+.dl-button.dlspan{
     padding: 0px;
 }
 .icon-small{
     font-size: 18px;
     vertical-align: -3px;
 }
-.icon-big{
+.icon-large{
     font-size: 42px;
     vertical-align: -11px;
 }
@@ -152,7 +176,7 @@ img {
     /* background-color: yellowgreen; */
     padding: 0px;
 }
-.plugin_name_box span{
+.plugin_name_box .namespan{
     /* background-color: rgb(136, 175, 58); */
     float:left;
     font-size: 68px;
@@ -184,6 +208,21 @@ img {
     padding-left: 10px;
     margin-bottom: 10px;
     border-left: 8px solid rgb(52, 94, 85);
+}
+
+.mv{
+    background-color: #59804a;
+}
+.mz{
+    background: #3c909b;
+}
+.category{
+    background: #464646;
+}
+.mv,.mz,.category{
+    color: #ffffff;
+    padding: 0 12px;
+    margin-left: 13px;
 }
 
 

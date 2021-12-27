@@ -34,18 +34,17 @@ const documentFooter=
 let elementFooter = document.getElementById('footer');
 elementFooter.insertAdjacentHTML('beforeend', documentFooter);
 
-
-//============================== プラグインリスト =====================================
-
-if(document.getElementById("plugin_list") != null){
+//============================== プラグインリスト ===========================
+let version = document.getElementById("select_version");
+let category = document.getElementById("select_category");
+let serch = document.getElementById("search_text");
+if(version){
     beforeDownload = `
     <section class="underline">
             <a class="dl-button" href="https://raw.githubusercontent.com/napiiey/rpgmaker-plugins/master/`;
-    afterDownload = `.js">Download<span class="material-icons icon-big">download_for_offline</span></a>
-            <a class="link-gray" href="`;
-    afterDetail = `.html">
-                <section class="plugin_name_box">
-                    <span class="material-icons icon-large">extension</span>
+    afterDownload = `.js">Download<span class="material-icons icon-big dlspan">download_for_offline</span></a>`;
+    afterDetail = `<section class="plugin_name_box">
+                    <span class="material-icons icon-large namespan">extension</span>
                     <div>
                         <h2>`;
     afterName = `</h2>
@@ -61,23 +60,83 @@ if(document.getElementById("plugin_list") != null){
     `;
 
     let pluginList = plugin_list.innerHTML;
+    let sortedArray=[];
     let pluginListResult = "";
+    let pluginListArray = pluginList.split("\n\n");
+    pluginListArray=pluginListArray.map(e=>e.split("\n"));
+    pluginListArray[0].shift();
+    pluginListArray=pluginListArray.map(e=>{
+        e[7]=e[1];
+        return e
+    });
 
-    while(pluginList.indexOf("\n\n") !== -1){
-        const nameStart = pluginList.indexOf("\n")+1;
-        const descStart = pluginList.indexOf("\n",nameStart)+1;
-        const textStart = pluginList.indexOf("\n",descStart)+1;
-        const textEnd = pluginList.indexOf("\n\n",textStart);
+    const mvmzSplit=function(mvmz){
+        let array=mvmz.split("-");
+        array=array.map(e=>{
+            let res="error";
+            if(e.includes("MV")){res='<span class="mv">'+e+'</span>'};
+            if(e.includes("MZ")){res='<span class="mz">'+e+'</span>'};
+            return res;
+        });
+        result=array.join('');
+        return result;
+    }
 
-        const name = pluginList.slice(nameStart,descStart);
-        const desc = pluginList.slice(descStart,textStart);
-        const text = pluginList.slice(textStart,textEnd);
-
-        pluginListResult = pluginListResult+beforeDownload+name+afterDownload+name.toLowerCase()+afterDetail+name+afterName+desc+afterDesc+text+afterText;
-        pluginList = pluginList.slice(textEnd+1);
+    const showList=function(list){
+        pluginListResult = "";
+        list.forEach(e=>{
+            const mvmz=mvmzSplit(e[4]);
+            const cat='<span class="category">'+e[5]+'</span>'
+            pluginListResult=pluginListResult+beforeDownload+e[7]+afterDownload+e[0]+afterDetail
+            +e[1]+afterName+e[2]+mvmz+cat+afterDesc+e[3]+afterText;
+        });
+        //0tag 1name 2desc 3text 4target 5category 6tag 7namecopy
+        plugin_list.innerHTML = '<div style="white-space:normal">'+pluginListResult+'</div>';
     };
-    // console.log(pluginListResult);
-    plugin_list.innerHTML = '<div style="white-space:normal">'+pluginListResult+'</div>';
+    showList(pluginListArray);
+
+    //============================== カテゴリーリスト =====================================
+    const categoryList=[];
+    let addCategory="";
+    pluginListArray.forEach(e=>{
+        if(!categoryList.includes(e[5])){categoryList.push(e[5])};
+    });
+    categoryList.forEach(e=>{
+        addCategory=addCategory+'<option>'+e+'</option>'+'\n';
+    });
+    category.insertAdjacentHTML('beforeend', addCategory);
+
+    //============================== ソート =====================================
+    version.addEventListener('change',function(){showSortList()},false);
+    category.addEventListener('change',function(){showSortList()},false);
+    serch.addEventListener('input',function(){showSortList()},false);
+    const showSortList=function(){
+        sortedArray=[];
+        pluginListArray.forEach(e=>{
+            if((version.value==="all"||version.value===e[4]||e[4]==="MV-MZ")
+                &&(category.value==="全てのカテゴリー"||category.value===e[5])){
+                let change=false;
+                let colored=e;
+                if(serch.value===""){change=true
+                }else{
+                    colored=colored.map((line,index)=>{
+                        let result=line;
+                        if(index===1||index===2||index===3||index===4||index===5){
+                            const regex = new RegExp(serch.value,'gi');
+                            result=line.replace(regex,text=>{
+                                change=true;
+                                return '<b class="serch_colored">'+text+'</b>'
+                            });
+                        };
+                        return result;
+                    });
+                };
+                if(change){sortedArray.push(colored);};
+            };    
+        });
+        showList(sortedArray);
+    };
+
 };
 
 //============================== ヘルプ文章 =====================================
@@ -93,7 +152,7 @@ if(document.getElementById("helpdocument") != null){
     const afterGa = `', 1);">
     <strong>Download</strong><span class="material-icons icon-big">download_for_offline</span></a>
 <section class="plugin_name_box">
-    <span class="material-icons icon-large">extension</span>
+    <span class="material-icons icon-large namespan">extension</span>
     <div>
         <h2 id="plugin_name"></h2>
         <p id="plugin_desc"></p>
@@ -162,7 +221,8 @@ const commentHtml = `
 <div id="comments"></div>`
 
 let elementComment = document.getElementById('commentArea');
-elementComment.insertAdjacentHTML('beforeend', commentHtml);
+if(elementComment){elementComment.insertAdjacentHTML('beforeend', commentHtml);};
+
 
 //user
 userId = "";
@@ -232,6 +292,7 @@ fetch(endpoint)
     });
 
     let elementComments = document.getElementById('comments');
-    elementComments.insertAdjacentHTML('beforeend', documentComments);
+    if(elementComments){elementComments.insertAdjacentHTML('beforeend', documentComments);};
+    
 });
 
