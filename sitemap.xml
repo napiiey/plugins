@@ -4,16 +4,54 @@
 <url>
   <loc>https://napiiey.github.io/plugins/</loc>
   <priority>1.0</priority>
-  <lastmod>2021-11-22T18:04:51+09:00</lastmod>
 </url>
-
-<url><loc>https://napiiey.github.io/plugins/napi_mapedit.html</loc></url>
-<url><loc>https://napiiey.github.io/plugins/napi_excludesavedata.html</loc></url>
-<url><loc>https://napiiey.github.io/plugins/napi_originaltextescape.html</loc></url>
-<url><loc>https://napiiey.github.io/plugins/napi_hitcountremovestate.html</loc></url>
-<url><loc>https://napiiey.github.io/plugins/napi_consecutivestates.html</loc></url>
-<url><loc>https://napiiey.github.io/plugins/napi_defaultdamagerate.html</loc></url>
-<url><loc>https://napiiey.github.io/plugins/napi_autofacegraphic.html</loc></url>
-<url><loc>https://napiiey.github.io/plugins/napi_noinputcounttrigger.html</loc></url>
+<url>
+  <loc>https://napiiey.github.io/plugins/napi_switchonatmessage.html</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://napiiey.github.io/plugins/napi_itemlist.html</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://napiiey.github.io/plugins/napi_limitedoneshop.html</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://napiiey.github.io/plugins/napi_selectablewindowaccel.html</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://napiiey.github.io/plugins/napi_noinputcounttrigger.html</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://napiiey.github.io/plugins/napi_autofacegraphic.html</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://napiiey.github.io/plugins/napi_defaultdamagerate.html</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://napiiey.github.io/plugins/napi_consecutivestates.html</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://napiiey.github.io/plugins/napi_hitcountremovestate.html</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://napiiey.github.io/plugins/napi_originaltextescape.html</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://napiiey.github.io/plugins/napi_excludesavedata.html</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://napiiey.github.io/plugins/napi_mapedit.html</loc>
+  <priority>0.8</priority>
+</url>
 
 </urlset>
